@@ -1,6 +1,7 @@
 import excepciones.CupoExcedidoException;
 import modelo.*;
-import modelo.actividades.Actividad;
+import modelo.Certificacion.Certificable;
+import modelo.actividades.*;
 import modelo.actividades.Charla;
 import modelo.actividades.Taller;
 
@@ -100,7 +101,7 @@ public class App {
                 while (continuar){
                     System.out.println("Ingese legajo del estudiante a inscribir: ");
                     String legajo = scanner.nextLine();
-                    System.out.println("Ingese id de la modelo.actividades.Actividad: ");
+                    System.out.println("Ingese id de la Actividad: ");
                     idActividad = scanner.nextInt();
                     scanner.nextLine(); // se consume linea
                     for (Estudiante estudiante: estudiantes){
@@ -117,6 +118,8 @@ public class App {
             }catch (CupoExcedidoException e){
                 System.out.println("Error al inscribir: " + e.getMessage());
             }
+
+
 
             try{
 
@@ -139,6 +142,14 @@ public class App {
             /* Se muestran datos del evento */
             System.out.println("\n\n DATOS DEL EVENTO");
             evento.mostrar();
+            System.out.println("\nSe emiten certificados de asistencia:");
+            for(Actividad a: evento.getActividades()){
+                if(a instanceof Certificable certificable){
+                    for(Inscripcion i: a.getIncripciones()){
+                        System.out.println(certificable.generarCertificado(i.getEstudiante()));
+                    }
+                }
+            }
 
             /* Se consulta si se desea continuar creando eventos*/
             System.out.println("\n\nDesea crear otro evento  S/N?");
@@ -161,7 +172,7 @@ public class App {
         System.out.println("Ingese el cupo máximo de estudiantes admitidos para la actividad: ");
         int cupo= scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Tipo de modelo.actividades.Actividad (c: modelo.actividades.Charla / t: modelo.actividades.Taller):");
+        System.out.println("Tipo de Actividad (c/charla  || t/Taller) || Curso)");
         String tipo = scanner.nextLine().toLowerCase();
         if(tipo.equals("c") || tipo.equals("charla")){
             System.out.println("Ingrese el disertante de la charla: ");
@@ -175,7 +186,14 @@ public class App {
             boolean requiereNotebook = esAfirmativa(repuesta) ;
             Taller taller = new Taller(id, tituloActividad, cupo, requiereNotebook);
             return taller;
-        }else{
+        }else if(tipo.equals("curso")  ){
+            System.out.println("Nivel del curso? ");
+            int nivel = scanner.nextInt();
+            String jose = scanner.nextLine();
+            Curso curso = new Curso(id, tituloActividad, cupo, nivel);
+            return curso;
+        }
+        else {
             System.out.println("Creando charla por defecto");
             System.out.println("Ingrese el disertante de la charla: ");
             String disertante = scanner.nextLine();

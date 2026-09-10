@@ -1,6 +1,9 @@
 package modelo.actividades;
 
-public class Taller extends Actividad {
+import modelo.Certificacion.Certificable;
+import modelo.Estudiante;
+
+public class Taller extends Actividad implements Certificable {
     private boolean requiereNotebook;
 
     public Taller(int id, String titulo, int cupoMaximo, boolean requiereNotebook){
@@ -17,4 +20,12 @@ public class Taller extends Actividad {
         this.requiereNotebook = rn;
     }
     public boolean getRequiereNotebook(){ return this.requiereNotebook;}
+
+    @Override
+    public String generarCertificado(Estudiante estudiante){
+        String mensaje = "Certificado de asistencia del Estudiante: "
+                + estudiante.getNombre() + "al taller: " + getTitulo() +
+                "emitido por la entidad: " + ENTIDAD_EMISORA;
+        return mensaje;
+    }
 }

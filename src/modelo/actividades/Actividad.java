@@ -74,6 +74,8 @@ public abstract class Actividad {
     }
     public abstract double calcularCostoMateriales();
 
+    public ArrayList<Inscripcion> getIncripciones(){return incripciones;}
+
     public void mostrarInscripciones(){
         for(Inscripcion i:incripciones){
             System.out.println("\nmodelo.Inscripcion");
@@ -81,8 +83,9 @@ public abstract class Actividad {
             System.out.println("Estado: " + i.getEstado());
             System.out.println("modelo.Estudiante: " + i.getEstudiante().getNombre());
             System.out.println("Legajo: " + i.getEstudiante().getLegajo());
-
         }
+
+
     }
 
 
