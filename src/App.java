@@ -1,6 +1,6 @@
 import excepciones.CupoExcedidoException;
 import modelo.*;
-import modelo.Certificacion.Certificable;
+import modelo.certificacion.Certificable;
 import modelo.actividades.*;
 import modelo.actividades.Charla;
 import modelo.actividades.Taller;

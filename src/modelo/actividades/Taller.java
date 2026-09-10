@@ -1,6 +1,6 @@
 package modelo.actividades;
 
-import modelo.Certificacion.Certificable;
+import modelo.certificacion.Certificable;
 import modelo.Estudiante;
 
 public class Taller extends Actividad implements Certificable {

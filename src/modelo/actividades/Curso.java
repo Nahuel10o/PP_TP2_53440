@@ -1,7 +1,7 @@
 package modelo.actividades;
 
 import modelo.Estudiante;
-import modelo.Certificacion.Certificable;
+import modelo.certificacion.Certificable;
 
 public class Curso extends Actividad implements Certificable {
     private int nivel;

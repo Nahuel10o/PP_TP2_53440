@@ -1,4 +1,4 @@
-package modelo.Certificacion;
+package modelo.certificacion;
 import modelo.Estudiante;
 
 public interface Certificable {
