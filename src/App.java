@@ -8,6 +8,7 @@ import modelo.actividades.Taller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Scanner;
 
@@ -150,6 +151,19 @@ public class App {
                     }
                 }
             }
+
+            List<Curso> listaDeCursos = evento.filtrarActividadesPorTipo(Curso.class);
+            List<Charla> listaDeCharlas = evento.filtrarActividadesPorTipo(Charla.class);
+            List<Taller> listaDeTalleres = evento.filtrarActividadesPorTipo(Taller.class);
+
+            System.out.println("Cantidad de Cursos en el evento: " + listaDeCursos.size());
+            System.out.println("Cantidad de Charlas en el evento: " + listaDeCharlas.size());
+            System.out.println("Cantidad de Talleres en el evento: " + listaDeTalleres.size());
+
+            System.out.println("Costo de los Cursos en el evento: " + evento.calcularCostoMateriales(listaDeCursos));
+            System.out.println("Costo de los Charlas en el evento: " + evento.calcularCostoMateriales(listaDeCharlas));
+            System.out.println("Costo de los Talleres en el evento: " + evento.calcularCostoMateriales(listaDeTalleres));
+
 
             /* Se consulta si se desea continuar creando eventos*/
             System.out.println("\n\nDesea crear otro evento  S/N?");

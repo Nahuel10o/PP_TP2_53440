@@ -3,6 +3,7 @@ package modelo;
 import modelo.actividades.Actividad;
 import java.io.*;
 
+import java.util.List;
 import java.util.ArrayList;
 
 
@@ -122,6 +123,23 @@ public class EventoUniversitarios implements Serializable{
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream (archivo))){
             return (EventoUniversitarios) ois.readObject();
         }
+    }
+    //de la lista Actividades obtengo una mas pequeña con el tipo especificado en Class <T> tipo
+    public <T extends Actividad> List<T> filtrarActividadesPorTipo (Class <T> tipo){
+        List<T> resultado = new ArrayList<>();
+        for(Actividad act : actividades)
+            if(tipo.isInstance(act)){
+            resultado.add(tipo.cast(act));
+        }
+        return resultado;
+    }
+    //sumo el costo de todas las actividades de la lista que pasa como parametro
+    public double calcularCostoMateriales (List<? extends Actividad> actividadList){
+        double total = 0.0;
+        for (Actividad act : actividadList){
+            total =+ act.calcularCostoMateriales();
+        }
+        return total;
     }
 
 
