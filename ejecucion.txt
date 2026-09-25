@@ -1,0 +1,155 @@
+======================
+Ingese legajo del estudiante: 
+53532
+Ingese nombre y apellido del estudiante: 
+Juan Jose
+desea crear otro estudiante  S/N?
+s
+Ingese legajo del estudiante: 
+52784
+Ingese nombre y apellido del estudiante: 
+Pedro Gonzales
+desea crear otro estudiante  S/N?
+n
+
+
+REGISTRO DE EVENTOS: 
+====================
+Ingese un titulo para el evento: 
+Coder House
+El evento tendra costo para los participantes S/N?
+s
+Ingese el costo base:  
+1000
+
+
+REGISTRO DE ACTIVIDADES PARA EL EVENTO 
+Ingese el título de la actividad: 
+Meet and greet
+Ingese el cupo máximo de estudiantes admitidos para la actividad: 
+12
+Tipo de Actividad (c/charla  || t/Taller) || Curso)
+c
+Ingrese el disertante de la charla: 
+Gonzalo Rodriguez
+Inicializador estatico: Se cargo la clase EventoUniversitario.
+Desea crear otra actividad para el  evento Coder House S/N?
+s
+Ingese el título de la actividad: 
+Charla Inteligenci Artificial
+Ingese el cupo máximo de estudiantes admitidos para la actividad: 
+23
+Tipo de Actividad (c/charla  || t/Taller) || Curso)
+c
+Ingrese el disertante de la charla: 
+Maria Paula
+Desea crear otra actividad para el  evento Coder House S/N?
+s
+Ingese el título de la actividad: 
+Curso Networking
+Ingese el cupo máximo de estudiantes admitidos para la actividad: 
+65
+Tipo de Actividad (c/charla  || t/Taller) || Curso)
+curso
+Nivel del curso? 
+3
+Desea crear otra actividad para el  evento Coder House S/N?
+n
+Ingese el nombre de la sala donde se realizará el evento: 
+sala 3
+
+
+INSCRIPCION DE ESTUDIANTES EN ACTIVIDADES DEL  EVENTO Coder House
+===============================================================================
+Ingese legajo del estudiante a inscribir: 
+53532
+
+Ingese id de la Actividad: 
+1
+Desea generar otra inscripción  S/N?
+s
+Ingese legajo del estudiante a inscribir: 
+53532
+Ingese id de la Actividad: 
+2
+Desea generar otra inscripción  S/N?
+s
+Ingese legajo del estudiante a inscribir: 
+52784
+Ingese id de la Actividad: 
+1
+Desea generar otra inscripción  S/N?
+s
+Ingese legajo del estudiante a inscribir: 
+52784
+Ingese id de la Actividad: 
+2
+Desea generar otra inscripción  S/N?
+n
+Error de entrada/salida
+
+
+ DATOS DEL EVENTO
+
+
+titulo: Coder House
+Id: EVT-1
+costo: 4840.0
+gratuito: false
+modelo.Sala:sala 3
+
+modelo.actividades.Actividad:
+titulo: Meet and greet
+id: 1
+cupoMaximo: 12
+
+modelo.Inscripcion
+Fecha: 2026-09-25
+Estado: Registrado
+modelo.Estudiante: Juan Jose
+Legajo: 53532
+
+modelo.Inscripcion
+Fecha: 2026-09-25
+Estado: Registrado
+modelo.Estudiante: Pedro Gonzales
+Legajo: 52784
+
+modelo.actividades.Actividad:
+titulo: Charla Inteligenci Artificial
+id: 2
+cupoMaximo: 23
+
+modelo.Inscripcion
+Fecha: 2026-09-25
+Estado: Registrado
+modelo.Estudiante: Juan Jose
+Legajo: 53532
+
+modelo.Inscripcion
+Fecha: 2026-09-25
+Estado: Registrado
+modelo.Estudiante: Pedro Gonzales
+Legajo: 52784
+
+modelo.actividades.Actividad:
+titulo: Curso Networking
+id: 3
+cupoMaximo: 65
+
+Se emiten certificados de asistencia:
+Cantidad de Cursos en el evento: 1
+Cantidad de Charlas en el evento: 2
+Cantidad de Talleres en el evento: 0
+Costo de los Cursos en el evento: 3000.0
+Costo de los Charlas en el evento: 0.0
+Costo de los Talleres en el evento: 0.0
+
+
+Desea crear otro evento  S/N?
+n
+
+
+TOTAL DE EVENTOS CREADOS: 1
+
+Process finished with exit code 0
