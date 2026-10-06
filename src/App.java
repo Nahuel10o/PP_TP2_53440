@@ -1,3 +1,4 @@
+import Hilos.EnvioTicketsThreads;
 import excepciones.CupoExcedidoException;
 import modelo.*;
 import modelo.certificacion.Certificable;
@@ -108,12 +109,15 @@ public class App {
                     for (Estudiante estudiante: estudiantes){
                         if (estudiante.getLegajo().equals(legajo)){
 
-                            evento.getActividades().get(--idActividad).inscribir(estudiante); //.get(--idActividad) es para acceder a la instancia modelo.actividades.Actividad de la lista actividades
+                            evento.getActividades().get(--idActividad).inscribir(estudiante).confirmar();//.get(--idActividad) es para acceder a la instancia modelo.actividades.Actividad de la lista actividades
+
                         }
                     }
                     System.out.println("Desea generar otra inscripción  S/N?");
                     respuesta = scanner.nextLine().toLowerCase();
                     continuar  = esAfirmativa(respuesta);
+                    EnvioTicketsThreads hilo = new EnvioTicketsThreads(evento);
+                    hilo.start();
                 }
 
             }catch (CupoExcedidoException e){
@@ -152,6 +156,7 @@ public class App {
                 }
             }
 
+
             List<Curso> listaDeCursos = evento.filtrarActividadesPorTipo(Curso.class);
             List<Charla> listaDeCharlas = evento.filtrarActividadesPorTipo(Charla.class);
             List<Taller> listaDeTalleres = evento.filtrarActividadesPorTipo(Taller.class);
@@ -186,7 +191,7 @@ public class App {
         System.out.println("Ingese el cupo máximo de estudiantes admitidos para la actividad: ");
         int cupo= scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Tipo de Actividad (c/charla  || t/Taller) || Curso)");
+        System.out.println("Tipo de Actividad (c/charla  || t/Taller || Curso)");
         String tipo = scanner.nextLine().toLowerCase();
         if(tipo.equals("c") || tipo.equals("charla")){
             System.out.println("Ingrese el disertante de la charla: ");
